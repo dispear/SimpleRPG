@@ -8,7 +8,7 @@ import java.util.ArrayList;
 
 public class MonsterRepository {
     private final ArrayList<Monster> monsterList = new ArrayList<>();
-    private static final String FILE_PATH = "src/main/java/org/example/RPG/db/monsterDB.dat";
+    private static final String FILE_PATH = "RPG/src/main/java/org/example/RPG/db/monsterDB.dat";
 
     public MonsterRepository() {
         File file = new File(FILE_PATH);

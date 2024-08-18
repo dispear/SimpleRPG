@@ -5,7 +5,7 @@ import org.example.RPG.informaion.User;
 import java.io.*;
 
 public class UserRepository {
-    private static final String FILE_PATH = "src/main/java/org/example/RPG/db/userDB.dat";
+    private static final String FILE_PATH = "RPG/src/main/java/org/example/RPG/db/userDB.dat";
     private User user = null;
 
     public UserRepository(User user) {

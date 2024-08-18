@@ -69,13 +69,15 @@ public class GameService {
 
     // 몬스터의 공격
     public User defend(User user, Monster monster) {
-        int damage = (int) (Math.random() * (monster.getMaxAttack() - monster.getMinAttack())) + monster.getMinAttack();
+        int damage = (int) (Math.random() * (monster.getMaxAttack() - monster.getMinAttack()))
+                + monster.getMinAttack();
         int nowHp = user.getHp() - damage;
         if (nowHp <= 0)
             nowHp = 0;
 
         user.setHp(nowHp);
-        System.out.println(damage + " 데미지를 받았습니다. " + user.getName() + " 의 남은 체력 : " + user.getHp() + "/" + user.getMaxHp());
+        System.out.println(damage + " 데미지를 받았습니다. " + user.getName()
+                + " 의 남은 체력 : " + user.getHp() + "/" + user.getMaxHp());
 
         return user;
     }
@@ -85,7 +87,8 @@ public class GameService {
         int exp = monster.getExp();
 
         user.setExp(user.getExp() + exp);
-        user.setMoney(user.getMoney() + (int) (Math.random() * (monster.getMaxMoney() - monster.getMinMoney()) + monster.getMinMoney()));
+        user.setMoney(user.getMoney()
+                + (int) (Math.random() * (monster.getMaxMoney() - monster.getMinMoney()) + monster.getMinMoney()));
 
         while (user.getExp() >= user.getMaxExp()) {
             user.setExp(user.getExp() - user.getMaxExp());
@@ -99,6 +102,7 @@ public class GameService {
         return user;
     }
 
+    // 유저 패배, 돈 잃음
     public User lose(User user) {
         int money = user.getMoney() / 2;
         user.setMoney(money);
@@ -109,6 +113,7 @@ public class GameService {
         return user;
     }
 
+    // 휴식, 비용 소모
     public void rest() {
         User user = userRepository.statusUser();
 
